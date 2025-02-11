@@ -52,6 +52,7 @@ class Dev(Configuration):
         'django.contrib.staticfiles',
         'blog',
         'crispy_forms',
+        'rest_framework',
         'crispy_bootstrap5',
         'debug_toolbar',
         'blango_auth',
