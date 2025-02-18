@@ -58,7 +58,15 @@ class Dev(Configuration):
         'debug_toolbar',
         'blango_auth',
         "allauth", "allauth.account", "allauth.socialaccount", "allauth.socialaccount.providers.google",
+        "drf_yasg"
     ]
+
+    SWAGGER_SETTINGS = {
+        "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
+    }
 
     SITE_ID = 1
 
