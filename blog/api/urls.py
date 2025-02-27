@@ -44,5 +44,11 @@ urlpatterns += [
         name="schema-swagger-ui",
     ),
     path("", include(router.urls)),
+    ## Below is an extra posts url in addition to above router
+    path(
+        "posts/by-time/<str:period_name>/",
+        PostViewSet.as_view({"get": "list"}),
+        name="posts-by-time",
+    ),
 ]
 #urlpatterns = format_suffix_patterns(urlpatterns)
