@@ -51,6 +51,7 @@ class Dev(Configuration):
         "django.contrib.sites",
         'django.contrib.staticfiles',
         'blog',
+        'django_filters',
         'crispy_forms',
         'rest_framework',
         'rest_framework.authtoken',
@@ -168,7 +169,7 @@ class Dev(Configuration):
 
 
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-    RISPY_TEMPLATE_PACK = "bootstrap5"
+    CRISPY_TEMPLATE_PACK = "bootstrap5"
 
     LOGGING = {
       "version": 1,
@@ -232,7 +233,13 @@ class Dev(Configuration):
             "user_sustained": "5000/day",
             "user_burst": "100/minute",
         },
-    }
+        "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+        "PAGE_SIZE": 100,
+        "DEFAULT_FILTER_BACKENDS": [
+            "django_filters.rest_framework.DjangoFilterBackend",
+            "rest_framework.filters.OrderingFilter"
+        ],
+      }
     
 class Prod(Dev):
     DEBUG = False
