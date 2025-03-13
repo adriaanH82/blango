@@ -163,6 +163,10 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
     STATIC_URL = '/static/'
+    #FAH Seperate from app static files for seperation - API and future dev with external workers
+    STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    ]
     MEDIA_ROOT = BASE_DIR / "media"
     MEDIA_URL = "/media/"
 
